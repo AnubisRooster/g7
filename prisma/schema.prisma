@@ -1,0 +1,117 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  // Relations
+  sessions       Session[]
+  answers        UserAnswer[]
+  criteria       GenerationCriteria[]
+}
+
+model Post {
+  id        String   @id @default(cuid())
+  title     String
+  content   String?
+  published Boolean  @default(false)
+  authorId  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model InterviewQuestion {
+  id              String   @id @default(cuid())
+  question        String
+  category        String   // AI Engineer, AI Architect, LLM Model Tuning, MLOps
+  difficulty      String   // Easy, Medium, Hard, Expert
+  role            String   // Specific role within the category
+  tags            String   // JSON array of tags
+  expectedAnswer  String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  
+  // Relations
+  sessionQuestions SessionQuestion[]
+  userAnswers      UserAnswer[]
+}
+
+model Session {
+  id          String   @id @default(cuid())
+  title       String?
+  description String?
+  userId      String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  // Relations
+  user             User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  sessionQuestions SessionQuestion[]
+  criteria         GenerationCriteria[] @relation("SessionCriteria")
+  userAnswers      UserAnswer[]
+}
+
+model SessionQuestion {
+  id         String   @id @default(cuid())
+  sessionId  String
+  questionId String
+  order      Int
+  createdAt  DateTime @default(now())
+  
+  // Relations
+  session    Session            @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  question   InterviewQuestion  @relation(fields: [questionId], references: [id], onDelete: Cascade)
+  userAnswers UserAnswer[]
+}
+
+model UserAnswer {
+  id          String   @id @default(cuid())
+  userId      String
+  questionId  String
+  sessionId   String?
+  sessionQuestionId String?
+  answer      String
+  isCorrect   Boolean?
+  feedback    String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  // Relations
+  user           User              @relation(fields: [userId], references: [id], onDelete: Cascade)
+  question       InterviewQuestion @relation(fields: [questionId], references: [id], onDelete: Cascade)
+  session        Session?          @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  sessionQuestion SessionQuestion? @relation(fields: [sessionQuestionId], references: [id], onDelete: Cascade)
+}
+
+model GenerationCriteria {
+  id             String   @id @default(cuid())
+  userId         String
+  sessionId      String?
+  categories     String   // JSON array of categories
+  difficulty     String?
+  experienceLevel String? // Junior, Mid, Senior, Expert
+  focusAreas     String   // JSON array of focus areas
+  questionCount  Int      @default(10)
+  customPrompt   String?
+  createdAt      DateTime @default(now())
+  
+  // Relations
+  user    User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  sessions Session[] @relation("SessionCriteria")
+}
