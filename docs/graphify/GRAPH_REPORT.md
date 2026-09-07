@@ -1,7 +1,8 @@
-# Graph Report - g7  (2026-09-06)
+# Graph Report - g7  (2026-09-07)
 
 ## Corpus Check
-- Corpus is ~29,868 words - fits in a single context window. You may not need a graph.
+- 83 files · ~109,835 words
+- Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
 - 614 nodes · 1111 edges · 44 communities (36 shown, 7 thin omitted)
