@@ -1,8 +1,9 @@
-# Graph Report - g7  (2026-09-07)
+# Graph Report - g7  (2026-09-14)
 
 ## Corpus Check
-- 83 files · ~109,835 words
+- 83 files · ~109,834 words
 - Verdict: corpus is large enough that graph structure adds value.
+- Unclassified: 9 file(s) not represented in the graph (top: (none) 2, .bat 2, .db 1)
 
 ## Summary
 - 614 nodes · 1111 edges · 44 communities (36 shown, 7 thin omitted)
