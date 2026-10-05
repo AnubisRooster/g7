@@ -1,12 +1,12 @@
-# Graph Report - g7  (2026-09-28)
+# Graph Report - g7  (2026-10-05)
 
 ## Corpus Check
-- 83 files · ~111,420 words
+- 83 files · ~114,898 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 9 file(s) not represented in the graph (top: (none) 2, .bat 2, .db 1)
 
 ## Summary
-- 631 nodes · 1216 edges · 38 communities (32 shown, 6 thin omitted)
+- 631 nodes · 1216 edges · 38 communities (31 shown, 7 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 1 edges (avg confidence: 0.85)
 - Token cost: 0 input · 0 output
 
@@ -27,7 +27,6 @@
 - context-menu.tsx
 - dropdown-menu.tsx
 - form.tsx
-- graphify_pipeline.py
 - devDependencies
 - chart.tsx
 - drawer.tsx
@@ -77,7 +76,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (38 total, 6 thin omitted)
+## Communities (38 total, 7 thin omitted)
 
 ### Community 0 - "dependencies"
 Cohesion: 0.03
@@ -101,7 +100,7 @@ Nodes (33): @radix-ui/react-tooltip, SidebarContent(), SidebarContext, SidebarCo
 
 ### Community 5 - "use-toast.ts"
 Cohesion: 0.10
-Nodes (31): @radix-ui/react-toast, src_app_globals, geistMono, geistSans, metadata, RootLayout(), Toast, ToastAction (+23 more)
+Nodes (29): @radix-ui/react-toast, geistMono, geistSans, metadata, RootLayout(), Toast, ToastAction, ToastActionElement (+21 more)
 
 ### Community 6 - "command.tsx"
 Cohesion: 0.14
@@ -129,7 +128,7 @@ Nodes (13): @radix-ui/react-menubar, Menubar(), MenubarCheckboxItem(), MenubarCo
 
 ### Community 12 - "next"
 Cohesion: 0.16
-Nodes (11): nextConfig, ref_http, next, socket.io, z-ai-web-dev-sdk, createCustomServer(), buildAIPrompt(), extractQuestionsFromText() (+3 more)
+Nodes (10): nextConfig, next, socket.io, z-ai-web-dev-sdk, createCustomServer(), buildAIPrompt(), extractQuestionsFromText(), parseGeneratedQuestions() (+2 more)
 
 ### Community 13 - "context-menu.tsx"
 Cohesion: 0.12
@@ -142,10 +141,6 @@ Nodes (10): @radix-ui/react-dropdown-menu, DropdownMenuCheckboxItem(), DropdownM
 ### Community 15 - "form.tsx"
 Cohesion: 0.18
 Nodes (13): @radix-ui/react-label, react-hook-form, FormControl(), FormDescription(), FormFieldContext, FormFieldContextValue, FormItem(), FormItemContext (+5 more)
-
-### Community 16 - "graphify_pipeline.py"
-Cohesion: 0.13
-Nodes (13): graphify_analyze, graphify_build, graphify_cluster, graphify_detect, graphify_export, graphify_extract, graphify_llm, graphify_report (+5 more)
 
 ### Community 17 - "devDependencies"
 Cohesion: 0.17
@@ -173,7 +168,7 @@ Nodes (6): clsx, @radix-ui/react-slider, @radix-ui/react-switch, tailwind-merge,
 
 ### Community 23 - "eslint.config.mjs"
 Cohesion: 0.25
-Nodes (7): compat, __dirname, eslintConfig, __filename, @eslint/eslintrc, ref_path, ref_url
+Nodes (5): compat, __dirname, eslintConfig, __filename, @eslint/eslintrc
 
 ### Community 24 - "lucide-react"
 Cohesion: 0.25
@@ -210,22 +205,22 @@ Nodes (3): Install-Chocolatey(), Install-ChocoPackage(), Test-Command()
 ## Knowledge Gaps
 - **204 isolated node(s):** `$schema`, `style`, `rsc`, `tsx`, `config` (+199 more)
   These have ≤1 connection - possible missing edges. (Counts symbols only; 269 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
-- **6 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **7 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `cn()` connect `cn()` to `react`, `carousel.tsx`, `sidebar.tsx`, `use-toast.ts`, `command.tsx`, `navigation-menu.tsx`, `menubar.tsx`, `context-menu.tsx`, `dropdown-menu.tsx`, `form.tsx`, `chart.tsx`, `drawer.tsx`, `sheet.tsx`, `utils.ts`, `lucide-react`, `input-otp.tsx`, `accordion.tsx`, `popover.tsx`, `avatar.tsx`, `hover-card.tsx`, `resizable.tsx`?**
   _High betweenness centrality (0.289) - this node is a cross-community bridge._
-- **Why does `dependencies` connect `dependencies` to `package.json`?**
-  _High betweenness centrality (0.189) - this node is a cross-community bridge._
-- **Why does `react` connect `react` to `carousel.tsx`, `package.json`, `sidebar.tsx`, `use-toast.ts`, `command.tsx`, `navigation-menu.tsx`, `cn()`, `menubar.tsx`, `context-menu.tsx`, `dropdown-menu.tsx`, `form.tsx`, `chart.tsx`, `drawer.tsx`, `sheet.tsx`, `utils.ts`, `lucide-react`, `input-otp.tsx`, `accordion.tsx`, `popover.tsx`, `avatar.tsx`, `hover-card.tsx`, `resizable.tsx`?**
-  _High betweenness centrality (0.172) - this node is a cross-community bridge._
 - **What connects `$schema`, `style`, `rsc` to the rest of the system?**
   _204 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `dependencies` be split into smaller, more focused modules?**
   _Cohesion score 0.028169014084507043 - nodes in this community are weakly interconnected._
+- **Why does `dependencies` connect `dependencies` to `package.json`?**
+  _High betweenness centrality (0.189) - this node is a cross-community bridge._
 - **Should `react` be split into smaller, more focused modules?**
   _Cohesion score 0.08953418027828192 - nodes in this community are weakly interconnected._
+- **Why does `react` connect `react` to `carousel.tsx`, `package.json`, `sidebar.tsx`, `use-toast.ts`, `command.tsx`, `navigation-menu.tsx`, `cn()`, `menubar.tsx`, `context-menu.tsx`, `dropdown-menu.tsx`, `form.tsx`, `chart.tsx`, `drawer.tsx`, `sheet.tsx`, `utils.ts`, `lucide-react`, `input-otp.tsx`, `accordion.tsx`, `popover.tsx`, `avatar.tsx`, `hover-card.tsx`, `resizable.tsx`?**
+  _High betweenness centrality (0.172) - this node is a cross-community bridge._
 - **Should `carousel.tsx` be split into smaller, more focused modules?**
   _Cohesion score 0.06976744186046512 - nodes in this community are weakly interconnected._
