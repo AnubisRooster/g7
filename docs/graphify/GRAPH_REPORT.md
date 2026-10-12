@@ -1,7 +1,7 @@
-# Graph Report - g7  (2026-10-05)
+# Graph Report - g7  (2026-10-12)
 
 ## Corpus Check
-- 83 files · ~114,898 words
+- 83 files · ~114,921 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 9 file(s) not represented in the graph (top: (none) 2, .bat 2, .db 1)
 
@@ -203,7 +203,7 @@ Cohesion: 0.83
 Nodes (3): Install-Chocolatey(), Install-ChocoPackage(), Test-Command()
 
 ## Knowledge Gaps
-- **204 isolated node(s):** `$schema`, `style`, `rsc`, `tsx`, `config` (+199 more)
+- **31 isolated node(s):** `@dnd-kit/core`, `@dnd-kit/sortable`, `@dnd-kit/utilities`, `@hookform/resolvers`, `@mdxeditor/editor` (+26 more)
   These have ≤1 connection - possible missing edges. (Counts symbols only; 269 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **7 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -212,8 +212,8 @@ _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `cn()` connect `cn()` to `react`, `carousel.tsx`, `sidebar.tsx`, `use-toast.ts`, `command.tsx`, `navigation-menu.tsx`, `menubar.tsx`, `context-menu.tsx`, `dropdown-menu.tsx`, `form.tsx`, `chart.tsx`, `drawer.tsx`, `sheet.tsx`, `utils.ts`, `lucide-react`, `input-otp.tsx`, `accordion.tsx`, `popover.tsx`, `avatar.tsx`, `hover-card.tsx`, `resizable.tsx`?**
   _High betweenness centrality (0.289) - this node is a cross-community bridge._
-- **What connects `$schema`, `style`, `rsc` to the rest of the system?**
-  _204 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **What connects `@dnd-kit/core`, `@dnd-kit/sortable`, `@dnd-kit/utilities` to the rest of the system?**
+  _31 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `dependencies` be split into smaller, more focused modules?**
   _Cohesion score 0.028169014084507043 - nodes in this community are weakly interconnected._
 - **Why does `dependencies` connect `dependencies` to `package.json`?**
