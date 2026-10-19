@@ -1,7 +1,7 @@
-# Graph Report - g7  (2026-10-12)
+# Graph Report - g7  (2026-10-19)
 
 ## Corpus Check
-- 83 files · ~114,921 words
+- 83 files · ~76,208 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 9 file(s) not represented in the graph (top: (none) 2, .bat 2, .db 1)
 
