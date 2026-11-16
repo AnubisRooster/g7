@@ -1,4 +1,4 @@
-# Graph Report - g7  (2026-11-09)
+# Graph Report - g7  (2026-11-16)
 
 ## Corpus Check
 - 83 files · ~78,128 words
